@@ -31,8 +31,8 @@ const Navbar = () => {
    Get App
   </MenuButton>
   <MenuList bg="#257CFF">
-    <MenuItem><Link to="https://apps.apple.com/app/apple-store/id449810000">Workout App(ios)</Link></MenuItem>
-    <MenuItem><Link to="https://play.google.com/store/apps/details?id=je.fit&referrer=utm_source%3Demail&pli=1">Workout App(Android)</Link></MenuItem>
+    <MenuItem><Link href={"https://apps.apple.com/app/apple-store/id449810000"}>Workout App(ios)</Link></MenuItem>
+    <MenuItem><Link href={"https://play.google.com/store/apps/details?id=je.fit&referrer=utm_source%3Demail&pli=1"}>Workout App(Android)</Link></MenuItem>
     </MenuList>
             </Menu> 
             <Menu>
