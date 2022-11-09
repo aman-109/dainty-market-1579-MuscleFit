@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, Text } from "@chakra-ui/react"
+import { Box, Divider, Flex, Image, SimpleGrid, Spacer, Text } from "@chakra-ui/react"
 import { useMedia } from "../MediaQuery/UseMedia"
 
 export const Profile = () => {
@@ -8,13 +8,52 @@ export const Profile = () => {
 
     return (
         <>
-        <Box m="auto" w="75%" border="1px solid red" >
-            <SimpleGrid columns={3} gap="2%">
-                <Box border="1px solid red" w="100%">h</Box>
-                <Box border="1px solid red" w="100%" >dsfsdfsdfj</Box>
-                <Box border="1px solid red" w="100%" >k</Box>
+        <Box m="auto" w={mediumScreen?"75%":"100%"}  >
+            <Flex mt="100px" direction={!smallScreen?"column":"row"}  >
 
-            </SimpleGrid>
+                <Box m="auto"  w={!smallScreen?"80%":"20%"}>
+                    <Image m="auto" borderRadius="50%" src="https://www.jefit.com/images/noProfilePic220.png" alt="profilePic" />
+                <Flex>
+                    <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
+                    <Text fontSize="sm"  > My Routines </Text>
+                </Flex>
+                <Divider mt="3px" mb="3px"  orientation='horizontal'/>
+                <Flex>
+                    <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
+                    <Text fontSize="sm"  >My Logs </Text>
+                </Flex>
+                <Divider mt="3px" mb="3px"  orientation='horizontal'/>
+                <Flex>
+                    <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
+                    <Text fontSize="sm"  > My Reports </Text>
+                </Flex>
+                <Divider mt="3px" mb="3px"  orientation='horizontal'/>
+                <Flex>
+                    <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
+                    <Text fontSize="sm"  > My Photos</Text>
+                </Flex>
+                <Divider mt="3px" mb="3px"  orientation='horizontal'/>
+                <Flex>
+                    <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
+                    <Text fontSize="sm"  > My Custom Exercises </Text>
+                </Flex>
+                <Divider mt="3px" mb="3px"  orientation='horizontal'/>
+                <Flex>
+                    <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
+                    <Text fontSize="sm"  > My Messages </Text>
+                </Flex>
+                </Box>
+                {/* second */}
+                <Spacer/>
+                <Box  w="55%" >dsfsdfsdfj</Box>
+
+                {/* third */}
+                {smallScreen && <><Spacer/>
+                <Box  w="20%" >k</Box>
+                </> 
+                }
+
+            </Flex>
         </Box>
         </>
     )
