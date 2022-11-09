@@ -22,13 +22,13 @@ const BoxCrouser = () => {
 
     function doIt(){
         if(box.scrollLeft<"300"){
-            box.scrollLeft = 300
+            box.scrollLeft = 1800
         } else{
             box.scrollLeft = box.scrollLeft - 300
         }
     }
     function doIt2(){
-        if(box.scrollLeft>"1500"){
+        if(box.scrollLeft>"1700"){
             box.scrollLeft = 10
         } else {
             box.scrollLeft = box.scrollLeft + 300
