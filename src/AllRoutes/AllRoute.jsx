@@ -1,6 +1,9 @@
 import React from 'react'
 import{Routes,Route} from "react-router-dom"
+import Exercise from '../Pages/exercise/Exercise'
+import { Home } from '../Pages/Home'
 import Login from '../Pages/Login'
+import Muscle from '../Pages/Muscle'
 import { Profile } from '../Pages/Profile'
 import Signup from '../Pages/Signup'
 
@@ -8,9 +11,12 @@ const AllRoute = () => {
   return (
     <div>
         <Routes>
+            <Route path="/" element={<Home/>}> </Route>
             <Route path="/login" element={<Login/>}> </Route>
             <Route path="/signup" element={<Signup/>}></Route>
             <Route path='/profile' element={<Profile/>} ></Route>
+            <Route path='/exercise' element={<Exercise/>} ></Route>
+            <Route path='/exercise/muscle' element={<Muscle/>} ></Route>
         </Routes>
     </div>
   )
