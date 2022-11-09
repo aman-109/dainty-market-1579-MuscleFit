@@ -1,5 +1,4 @@
-import Navbar from "../../components/Navbar"
-import Footer from "../../components/Footer"
+
 import Avatar from "./Avatar"
 import FilterTable from "./FilterTable"
 import { Box, Text } from "@chakra-ui/react"
