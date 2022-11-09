@@ -86,7 +86,10 @@ export const Tracking=()=>{
         Flexible workout planning tool
         </Text>
        </Flex>
-       <Button  variant='solid' bg='#39B7FF' color='white' fontFamily='Montserrat, sans-serif' fontSize='20px' fontWight='700' style={{borderRadius:'20px',padding:'1% 10%'}}>JOIN NOW</Button>
+       <Box bg='green' style={{display:'flex',justifyContent:'flex-start'}}>
+       <Button  variant='solid' bg='#39B7FF' color='white' fontFamily='Montserrat, sans-serif' fontSize='20px' fontWight='700' style={{borderRadius:'20px',padding:'1% 10%',}}>JOIN NOW</Button>
+
+       </Box>
         
     </Box>
 </Box>
