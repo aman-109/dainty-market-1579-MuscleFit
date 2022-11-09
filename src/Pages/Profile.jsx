@@ -10,7 +10,7 @@ export const Profile = () => {
         <>
         <Box>
             <Text>{!smallScreen?"smaal":!mediumScreen?"mid":!largeScreen?"large":"other"} </Text>
-            {/* <Text>{!largeScreen?"large":!mediumScreen?"mid":!smallScreen?"smaal":"other"} </Text> */}
+            <Text>{!largeScreen?"large":!mediumScreen?"mid":!smallScreen?"smaal":"other"} </Text>
         </Box>
         </>
     )
