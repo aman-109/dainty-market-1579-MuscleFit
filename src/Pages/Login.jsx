@@ -8,15 +8,43 @@ import {
     Input,
     VStack,
     Text,
-    Image,
+    
     Heading
     
   } from "@chakra-ui/react";
-  import React from "react"
+  import React, { useState } from "react"
+  import{signInWithEmailAndPassword} from "firebase/auth"
+  import {FcGoogle}from "react-icons/fc"
+  import{BsFacebook}from"react-icons/bs"
+  import {BsApple} from "react-icons/bs"
+  
+import { Link,useNavigate } from "react-router-dom";
+import { auth, signInwithGoogle } from "./firebase-config";
+import{signInFacebook} from "./firebase-config"
   
   
   
   export default function Login() {
+    const[u_login_email,setLogin_email]=useState("")
+    const[u_login_password,setLogin_password]=useState("")
+  const navigate=useNavigate()
+    const login=async ()=>{
+      try{
+        const user=await signInWithEmailAndPassword(auth,u_login_email,u_login_password)
+        console.log(user)
+        navigate("/profile")
+      }catch(err){
+        alert(err)
+      }
+    }
+    
+    const handleSubmit=(e)=>{
+      e.preventDefault()
+      
+     
+      
+  }
+  
     
     return (
       <Box
@@ -49,7 +77,7 @@ import {
             <br />
             <Box>
             </Box>
-            <form >
+            <form onSubmit={handleSubmit} >
               <VStack spacing={4} align="flex-start">
                 
                 <FormControl>
@@ -59,6 +87,7 @@ import {
                     name="email"
                     type="email"
                     variant="filled"
+                    onChange={(e)=>setLogin_email(e.target.value)}
                     
                   />
                 </FormControl>
@@ -69,6 +98,7 @@ import {
                     name="password"
                     type="password"
                     variant="filled"
+                    onChange={(e)=>setLogin_password(e.target.value)}
                   />
                 </FormControl>
                 <Checkbox
@@ -78,7 +108,7 @@ import {
                 >
                   Remember me?
                 </Checkbox>
-                <Button type="submit" bg="#50b6ff" width="full">
+                <Button type="submit" bg="#50b6ff" width="full" onClick={login}>
                   Login
                 </Button>
                 <Box alignSelf={"center"}>
@@ -87,16 +117,20 @@ import {
                 <Box>
               <Flex gap={5} ml="60px" align={"center"}>
                 <Box >
-                  <Image w={50} borderRadius="10px" src="https://www.jefit.com/images/rg_google.svg"></Image>
+                  <Button onClick={signInwithGoogle} ><FcGoogle/></Button>
+                  {/* <Image w={50} borderRadius="10px" src="https://www.jefit.com/images/rg_google.svg"></Image> */}
                 </Box>
                 <Box>
-                  <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_fb.svg"></Image>
+                  <Button onClick={signInFacebook}><BsFacebook/></Button>
+                  {/* <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_fb.svg"></Image> */}
                 </Box>
                 <Box>
-                  <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_apple.svg"></Image>
+                  <Button><BsApple/></Button>
+                  {/* <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_apple.svg"></Image> */}
                 </Box>
               </Flex>
               <br />
+              <Text>New to MuscleFit?{" "}<Link color="teal.500" to="/signup" >Create an account</Link></Text>
               
               </Box>
               </VStack>
