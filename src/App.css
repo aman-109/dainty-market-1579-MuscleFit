@@ -43,3 +43,7 @@
     transform: rotate(360deg);
   }
 }
+
+.look{
+  min-width: 300px;
+}
