@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Button, Flex, Menu, MenuButton, MenuItem, MenuList, Spacer } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import{ChevronDownIcon} from "@chakra-ui/icons"
+import { auth } from '../Pages/firebase-config';
+import{onAuthStateChanged,signOut}from "firebase/auth"
 
 const Navbar = () => {
+  const[user,setUser]=useState({})
+  
+  
+  
+  onAuthStateChanged(auth,(currentUser)=>{
+    setUser(currentUser)
+  })
+  
+  const logout=async ()=>{
+   try{
+    await signOut(auth)
+    
+   }catch(err){
+    alert("Failed To Logout")
+   }
+    
+    
+  }
   return (
-    <Box bg="#257CFF" h="100" p="4px">
+    <Box >
+    <Box bg="#257CFF" h="100" p="4px" >
       <Flex w="90%" m="auto">
         <Box>
           <Link to="/">
@@ -56,10 +77,15 @@ const Navbar = () => {
             </Menu>
           <Link to="/coach">Coach</Link>
           <Link to="/elite">Elite</Link>
-          <Link to="/login">Login</Link>
+          
+         {user?.email}
+          
+         <Link to="/login" >Login</Link>
+         
           
         </Flex>
         <Box alignSelf="center" mr="50px">
+        <Button onClick={logout}>Logout</Button>
           <Link to="/signup">
             <Button color="#3CB8FF" w="120px"  m="auto">
               Signup
@@ -67,6 +93,7 @@ const Navbar = () => {
           </Link>
         </Box>
       </Flex>
+    </Box>
     </Box>
   )
 }
