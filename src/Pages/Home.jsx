@@ -1,7 +1,7 @@
 import { Box, Center, Container, Flex, Grid, GridItem, Square,Text,Image } from "@chakra-ui/react"
 import {AiOutlineInstagram} from "react-icons/ai"
 import {BsFacebook,BsTwitter} from "react-icons/bs"
-import  Example  from "../components/Carousel"
+// import  Example  from "../components/Carousel"
 import { Tracking } from "../components/Tracking"
 
 export const Home=()=>{
@@ -82,7 +82,7 @@ export const Home=()=>{
                             </Box>
             </Flex>
      </Container>
-     <Example />
+     {/* <Example /> */}
 
      <Tracking />
     </>
