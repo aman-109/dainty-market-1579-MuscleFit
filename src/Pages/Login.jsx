@@ -8,53 +8,84 @@ import {
     Input,
     VStack,
     Text,
-    
+    Alert,
+    AlertIcon,
+
     Heading
     
   } from "@chakra-ui/react";
-  import React, { useState } from "react"
-  import{signInWithEmailAndPassword} from "firebase/auth"
+  import React, { useContext, useState } from "react"
+  
   import {FcGoogle}from "react-icons/fc"
   import{BsFacebook}from"react-icons/bs"
   import {BsApple} from "react-icons/bs"
   
 import { Link,useNavigate } from "react-router-dom";
-import { auth, signInwithGoogle } from "./firebase-config";
-import{signInFacebook} from "./firebase-config"
+
+
+import { AuthContext } from "../context/AppContext";
   
   
   
   export default function Login() {
-    const[u_login_email,setLogin_email]=useState("")
-    const[u_login_password,setLogin_password]=useState("")
-  const navigate=useNavigate()
-    const login=async ()=>{
-      try{
-        const user=await signInWithEmailAndPassword(auth,u_login_email,u_login_password)
-        console.log(user)
-        navigate("/profile")
-      }catch(err){
-        alert(err)
-      }
-    }
+    const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { logIn, googleSignIn, facebookSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
     
-    const handleSubmit=(e)=>{
-      e.preventDefault()
-      
-     
-      
-  }
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setError("");
+      setLoading(true);
+      try {
+        await logIn(email, password);
+        setLoading(false);
+        navigate("/profile");
+      } catch (err) {
+        setLoading(false);
+        if (err.code === "auth/user-not-found") {
+          setError(err.message);
+          setTimeout(() => {
+            navigate("/signup");
+          }, 2500);
+        } else setError(err.message);
+       
+      }
+    };
+    const handleGoogleLogin = async (e) => {
+      e.preventDefault();
+      try {
+        await googleSignIn();
+        navigate("/profile");
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  
+    const handleFBlogin = async (e) => {
+      e.preventDefault();
+      try {
+        await facebookSignIn();
+        navigate("/profile");
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
   
     
     return (
-      <Box
+      <Box 
         bgImage="url('https://www.jefit.com/images/loginbg.jpg')"
         bgPos="center"
         bgRepeat="no-repeat"
         bgSize="100%"
         Size="100%"
       >
-        <Box align="center"
+        <Box 
+        align="center"
           color="white"
           fontFamily="Montserrat - 700"
           fontSize="36px"
@@ -78,6 +109,12 @@ import{signInFacebook} from "./firebase-config"
             <Box>
             </Box>
             <form onSubmit={handleSubmit} >
+            {error && (
+            <Alert status="error">
+              <AlertIcon />
+              {error}
+            </Alert>
+          )}
               <VStack spacing={4} align="flex-start">
                 
                 <FormControl>
@@ -87,7 +124,7 @@ import{signInFacebook} from "./firebase-config"
                     name="email"
                     type="email"
                     variant="filled"
-                    onChange={(e)=>setLogin_email(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     
                   />
                 </FormControl>
@@ -98,7 +135,7 @@ import{signInFacebook} from "./firebase-config"
                     name="password"
                     type="password"
                     variant="filled"
-                    onChange={(e)=>setLogin_password(e.target.value)}
+                    onChange={(e)=>setPassword(e.target.value)}
                   />
                 </FormControl>
                 <Checkbox
@@ -108,7 +145,7 @@ import{signInFacebook} from "./firebase-config"
                 >
                   Remember me?
                 </Checkbox>
-                <Button type="submit" bg="#50b6ff" width="full" onClick={login}>
+                <Button type="submit" bg="#50b6ff" width="full" isLoading={loading}>
                   Login
                 </Button>
                 <Box alignSelf={"center"}>
@@ -117,11 +154,11 @@ import{signInFacebook} from "./firebase-config"
                 <Box>
               <Flex gap={5} ml="60px" align={"center"}>
                 <Box >
-                  <Button onClick={signInwithGoogle} ><FcGoogle/></Button>
+                  <Button onClick={handleGoogleLogin} ><FcGoogle/></Button>
                   {/* <Image w={50} borderRadius="10px" src="https://www.jefit.com/images/rg_google.svg"></Image> */}
                 </Box>
                 <Box>
-                  <Button onClick={signInFacebook}><BsFacebook/></Button>
+                  <Button onClick={handleFBlogin}><BsFacebook/></Button>
                   {/* <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_fb.svg"></Image> */}
                 </Box>
                 <Box>
