@@ -1,29 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext} from 'react'
 import { Box, Button, Flex, Menu, MenuButton, MenuItem, MenuList, Spacer } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import{ChevronDownIcon} from "@chakra-ui/icons"
-import { auth } from '../Pages/firebase-config';
-import{onAuthStateChanged,signOut}from "firebase/auth"
+import { AuthContext } from '../context/AppContext';
+
+
 
 const Navbar = () => {
-  const[user,setUser]=useState({})
+  const {user,logOut}=useContext(AuthContext)
+  const navigate=useNavigate()
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   
-  
-  
-  onAuthStateChanged(auth,(currentUser)=>{
-    setUser(currentUser)
-  })
-  
-  const logout=async ()=>{
-   try{
-    await signOut(auth)
-    
-   }catch(err){
-    alert("Failed To Logout")
-   }
-    
-    
-  }
   return (
     <Box >
     <Box bg="#257CFF" h="100" p="4px" >
@@ -78,14 +72,14 @@ const Navbar = () => {
           <Link to="/coach">Coach</Link>
           <Link to="/elite">Elite</Link>
           
-         {user?.email}
+         {/* {user?.email} */}
           
-         <Link to="/login" >Login</Link>
+         {!user?<Link to="/login" >Login</Link>:<Button colorScheme='white' variant='ghost' onClick={handleLogout}>Logout</Button>}
          
           
         </Flex>
         <Box alignSelf="center" mr="50px">
-        <Button onClick={logout}>Logout</Button>
+        
           <Link to="/signup">
             <Button color="#3CB8FF" w="120px"  m="auto">
               Signup
