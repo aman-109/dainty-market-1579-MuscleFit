@@ -1,17 +1,42 @@
 import { Box, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMedia } from "../MediaQuery/UseMedia";
 import SingleExercise from "../components/SingleExercise";
-import db from "../db.json";
 import Pagination from "../components/Pagination";
+import FilterTable from "./exercise/FilterTable";
+import { useLocation, useSearchParams } from "react-router-dom";
+import axios from "axios";
 
 const Muscle = () => {
   const { smallScreen, mediumScreen, largeScreen } = useMedia();
-  const [data, setData] = useState(db.biceps);
+  const [data, setData] = useState([]);
   const [page, setpage] = useState(1);
 
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+
+  const getExercise = (param) => {
+    return axios
+      .get("https://mockserver-uzrw.onrender.com/biceps",param)
+      .then((res) => setData(res.data));
+  };
+
+  useEffect(() => {
+    let getResult;
+    if (location.search || data.length === 0) {
+      // console.log("hi route changes")
+      getResult = {
+        params: {
+          type: searchParams.getAll("type"),
+        },
+      };
+    }
+    getExercise(getResult);
+  }, [location.search]);
+
   return (
-    <Box bg="gray.50" mt="300px">
+    <Box bg="gray.50" mt="0px">
+      <FilterTable />
       <Box
         // border={"1px solid"}
         m="auto"
