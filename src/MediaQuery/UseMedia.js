@@ -1,4 +1,5 @@
 import { useMediaQuery } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
 
 export const useMedia = () => {
 
@@ -23,3 +24,4 @@ export const useMedia = () => {
 // <Text>{!largeScreen?"large":!mediumScreen?"mid":!smallScreen?"smaal":"other"} </Text> wrong way
 
 //notice don't use largeScreen this is only for me
+
