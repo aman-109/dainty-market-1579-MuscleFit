@@ -12,7 +12,7 @@ function Pagination({ current, onChange, total }) {
       </Button>
     );
     const pages = new Array(total).fill(0).map((a, i) => (
-      <Button size={"sm"} color="blue"  variant={"outline"} onClick={() => onChange(i + 1)} disabled={current === i + 1}>
+      <Button size={"sm"} key={i} color="blue"  variant={"outline"} onClick={() => onChange(i + 1)} disabled={current === i + 1}>
         {i + 1}
       </Button>
     ));
