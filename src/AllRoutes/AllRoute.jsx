@@ -1,5 +1,6 @@
 import React from 'react'
 import{Routes,Route} from "react-router-dom"
+import Photos from '../components/ProfileComp/Photos'
 import Exercise from '../Pages/exercise/Exercise'
 import { Home } from '../Pages/Home'
 import Login from '../Pages/Login'
@@ -17,6 +18,7 @@ const AllRoute = () => {
             <Route path='/profile' element={<Profile/>} ></Route>
             <Route path='/exercise' element={<Exercise/>} ></Route>
             <Route path='/exercise/muscle' element={<Muscle/>} ></Route>
+            <Route path='/profile/photos' element={<Photos/> }></Route>
         </Routes>
     </div>
   )
