@@ -86,7 +86,7 @@ const Navbar = () => {
     <MenuItem>
     <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2} ml={2} mr={4} mb={2}>
 
-<Link to="/elite">Elite</Link>
+<Link to="/profile">Profile</Link>
 </Box>
     </MenuItem>
     <MenuItem>
@@ -163,7 +163,7 @@ const Navbar = () => {
           </Box>
           <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2} ml={2} mr={4} mb={2}>
 
-          <Link to="/elite">Elite</Link>
+          <Link to="/profile">Profile</Link>
           </Box>
           
          {/* {user?.email} */}
