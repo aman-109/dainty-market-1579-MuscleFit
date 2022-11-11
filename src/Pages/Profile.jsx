@@ -100,7 +100,10 @@ export const Profile = () => {
             </Flex>
             
         </Box>
-        {/* <BoxCrouser/> */}
+        <BoxCrouser/> 
         </>
     )
 }
+
+
+//ghfghgf
