@@ -21,7 +21,7 @@ const SingleExercise = ({ id, name, equipment, type, image, muscle_group }) => {
             boxSize="100%"
             objectFit="cover"
             src={image[0]}
-            alt="Dan Abramov"
+            alt={name}
           />
         </Box>
         <Box  ml={3} w="15%" h="120px">
@@ -29,11 +29,11 @@ const SingleExercise = ({ id, name, equipment, type, image, muscle_group }) => {
             boxSize="100%"
             objectFit="cover"
             src={image[1]}
-            alt="Dan Abramov"
+            alt={name}
           />
         </Box>
         <Box  w="40%" p="10px 20px" textAlign="start">
-          <Link to="#">
+          <Link to={`/exercise/muscle/${id}`}>
             <Text
               fontSize={!smallScreen ? "md" : "xl"}
               color="#0E709A"
