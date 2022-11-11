@@ -22,7 +22,7 @@ const init1 = {
 }
 
 export const Profile = () => {
-    const {smallScreen,mediumScreen,largeScreen} =  useMedia() 
+    const {smallScreen,mediumScreen} =  useMedia() 
     const [section,setSection] = useState({...init1,routines:true})
     const {routines,logs,reports,photos,exercises,messages} = section;
     const [loading,setLoading] = useState(false)
@@ -91,8 +91,9 @@ export const Profile = () => {
                 {/* third */}
                 {mediumScreen && <><Spacer/>
                 <Box textAlign="left"  w="20%" mt="50px" >
-                    <Text>Account</Text>
+                   {!messages && <> <Text>Account</Text>
                     <Text style={{color:"#ab9392"}} fontSize="sm">On this page you will be able to change your profile settings and set the units of measurement used within the application.</Text>
+                    </>}
                 </Box>
                 </> 
                 }
@@ -100,7 +101,7 @@ export const Profile = () => {
             </Flex>
             
         </Box>
-        <BoxCrouser/> 
+        {/* <BoxCrouser/>  */}
         </>
     )
 }

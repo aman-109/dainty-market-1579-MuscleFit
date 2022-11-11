@@ -20,14 +20,9 @@ import { Box, Button, useToast } from "@chakra-ui/react"
     )
   } */
 
-export const toastExample = (name,des,status) => {
-  const toast = useToast()
-  toast({
-    title: name,
-    description: des,
-    status: 'info',
-    duration: 6000,
-    isClosable: true,
-  })
+  //above code is for deffrent work
 
-}
+  //you can use following
+
+
+
