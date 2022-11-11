@@ -4,7 +4,7 @@ import ExerciseDetailsLeft from "./ExerciseDetailsLeft"
 
 
 export default function ExerciseDetails() {
-
+    let k="->"
 
     return (
         <Box w="100%" backgroundColor="rgb(248, 251, 254)">
@@ -15,7 +15,7 @@ export default function ExerciseDetails() {
             <Box w={{base:"100%", md:"100%", lg:"75%"}}>
                 <Flex flexDirection="column">
                     <Flex textAlign="left" fontSize="14px">
-                        <Text color="rgb(68, 188, 231)">Upper Legs Exercise Database <span style={{color:"rgb(136, 136, 136)"}}>-> 90/90 Hamstring Stretch</span> </Text>
+                        <Text color="rgb(68, 188, 231)">Upper Legs Exercise Database <span style={{color:"rgb(136, 136, 136)"}}>{k} 90/90 Hamstring Stretch</span> </Text>
                         <Text></Text>
                     </Flex>
                     <Box textAlign="left" borderBottom="1px solid rgb(222, 226, 230)">
