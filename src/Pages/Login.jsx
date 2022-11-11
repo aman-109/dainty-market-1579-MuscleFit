@@ -11,7 +11,7 @@ import {
     Alert,
     AlertIcon,
 
-    Heading
+    Heading,
     
   } from "@chakra-ui/react";
   import React, { useContext, useState } from "react"
@@ -24,6 +24,7 @@ import { Link,useNavigate } from "react-router-dom";
 
 
 import { AuthContext } from "../context/AppContext";
+// import { useMediaQuery } from "@chakra-ui/react";
   
   
   
@@ -46,11 +47,12 @@ import { AuthContext } from "../context/AppContext";
         navigate("/profile");
       } catch (err) {
         setLoading(false);
-        if (err.code === "auth/user-not-found") {
+        // if(password.length<=5){
+        //   Alert("Password length is small");
+        // }
+        if (err.code === "User not Found!!!!Please use correct login Credentials") {
           setError(err.message);
-          setTimeout(() => {
-            navigate("/signup");
-          }, 2500);
+          
         } else setError(err.message);
        
       }
@@ -58,7 +60,8 @@ import { AuthContext } from "../context/AppContext";
     const handleGoogleLogin = async (e) => {
       e.preventDefault();
       try {
-        await googleSignIn();
+     const user=   await googleSignIn();
+     console.log(user);
         navigate("/profile");
       } catch (error) {
         console.log(error.message);
@@ -68,7 +71,8 @@ import { AuthContext } from "../context/AppContext";
     const handleFBlogin = async (e) => {
       e.preventDefault();
       try {
-        await facebookSignIn();
+       const fbuser= await facebookSignIn();
+       console.log(fbuser);
         navigate("/profile");
       } catch (error) {
         console.log(error.message);
@@ -84,14 +88,14 @@ import { AuthContext } from "../context/AppContext";
         bgSize="100%"
         Size="100%"
       >
-        <Box 
+        <Box    
         align="center"
           color="white"
           fontFamily="Montserrat - 700"
           fontSize="36px"
           fontWeight="700"
           fontStyle="normal"
-          h={50}
+          h={25}
           display="block">
           <img
                 style={{  height: "100px" }}
@@ -102,7 +106,7 @@ import { AuthContext } from "../context/AppContext";
         </Box>
         <br/>
               <br/>
-        <Flex align="center"  justify="center" m={"auto"} pb={140} h="100vh">
+        <Flex align="center"  justify="center" m={"auto"} pb={140} h={"100vh"} w={["96%","65%","45%"]} >
         <Box bg="#ebf7ff" w={400} p={39} rounded="md" textAlign={"center"}>
             <Heading variant={"solid"}>LOG IN</Heading>
             <br />
@@ -119,7 +123,10 @@ import { AuthContext } from "../context/AppContext";
                 
                 <FormControl>
                   <FormLabel htmlFor="email">Email</FormLabel>
-                  <Input
+                  <Input direction={["column","row"]}
+                  placeholder={"Enter Email Address"}
+                   isInvalid
+                   errorBorderColor='#50b6ff'
                     id="email"
                     name="email"
                     type="email"
@@ -130,7 +137,10 @@ import { AuthContext } from "../context/AppContext";
                 </FormControl>
                 <FormControl>
                   <FormLabel htmlFor="password">Password</FormLabel>
-                  <Input
+                  <Input 
+                  placeholder={"Enter Password"}
+                  isInvalid
+                  errorBorderColor='#50b6ff'
                     id="password"
                     name="password"
                     type="password"
@@ -139,30 +149,33 @@ import { AuthContext } from "../context/AppContext";
                   />
                 </FormControl>
                 <Checkbox
+                isInvalid
+                errorBorderColor='#50b6ff'
                   id="rememberMe"
                   name="rememberMe"
                   colorScheme="purple"
                 >
                   Remember me?
                 </Checkbox>
-                <Button type="submit" bg="#50b6ff" width="full" isLoading={loading}>
+               
+                <Button type="submit" bg="#50b6ff" width="full" isLoading={loading} >
                   Login
                 </Button>
                 <Box alignSelf={"center"}>
                 <Text  variant={"ghost"}>Or</Text>
                 </Box>
                 <Box>
-              <Flex gap={5} ml="60px" align={"center"}>
+              <Flex gap={5} ml="60px" align={"center"} direction={{ base: 'column', md: 'column',lg:'row' }} >
                 <Box >
-                  <Button onClick={handleGoogleLogin} ><FcGoogle/></Button>
+                  <Button  onClick={handleGoogleLogin} variant='outline' colorScheme={"#50b6ff"}><FcGoogle/></Button>
                   {/* <Image w={50} borderRadius="10px" src="https://www.jefit.com/images/rg_google.svg"></Image> */}
                 </Box>
-                <Box>
-                  <Button onClick={handleFBlogin}><BsFacebook/></Button>
+                <Box >
+                  <Button onClick={handleFBlogin} variant='outline' colorScheme={"#50b6ff"}><BsFacebook/></Button>
                   {/* <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_fb.svg"></Image> */}
                 </Box>
-                <Box>
-                  <Button><BsApple/></Button>
+                <Box >
+                  <Button variant='outline' colorScheme={"#50b6ff"}><BsApple/></Button>
                   {/* <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_apple.svg"></Image> */}
                 </Box>
               </Flex>
@@ -170,6 +183,7 @@ import { AuthContext } from "../context/AppContext";
               <Text>New to MuscleFit?{" "}<Link color="teal.500" to="/signup" >Create an account</Link></Text>
               
               </Box>
+              
               </VStack>
             </form>
           </Box>
