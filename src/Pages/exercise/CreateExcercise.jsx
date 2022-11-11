@@ -15,7 +15,7 @@ export default function CreateExercise(){
                 {
                     data.map((el)=>(
                         <Box key={el.id} w="100%">
-                            <Link>
+                            <Link to={`/exercise/details/${el.id}`}>
                                 <Image src={el.image1} w="100%"/>
                                 <Text fontSize="14px" margin="0px" color="rgb(51, 181, 229)" fontWeight="500">{el.title}</Text>
                                 <Text fontSize="14px" margin="0px">{el.main_group},{el.detailed_group}</Text>
