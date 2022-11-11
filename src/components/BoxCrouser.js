@@ -6,7 +6,7 @@ import { useMedia } from '../MediaQuery/UseMedia';
 let varForCrouser = true;
 
 const BoxCrouser = () => {
-    const {smallScreen,mediumScreen,largeScreen} =  useMedia() 
+    const {smallScreen} =  useMedia() 
     const hstyle = {
         display:"flex",
         overflowX:"scroll",

@@ -87,6 +87,7 @@ export const Home=()=>{
             </Flex>
      </Container>
      {/* <Example /> */}
+     <BoxCrouser/>
 
      <WorkoutTracking />
      <SmartWatchIntegration />
