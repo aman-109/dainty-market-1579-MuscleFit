@@ -30,11 +30,8 @@ export default function Signup() {
 
   const signup = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-       email,
-       password
-      );
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(user);
       console.log(user.email);
       console.log(username);
       navigateUser("/login");
@@ -43,18 +40,18 @@ export default function Signup() {
       alert(err.message);
     }
     if (password.length <= 5) {
-      Alert("Please enter a strong password");
+      alert("Please enter a strong password");
     }
   };
 
   const handleSubmit = (e) => {
-    Alert("SIGN UP SUCCESSFULL");
+    alert("SIGN UP SUCCESSFULL");
   };
   const handlegoogleSignUp = async (e) => {
     e.preventDefault();
     try {
       await googleSignIn();
-      navigateUser("/profile");
+      navigateUser("/login");
     } catch (err) {
       Alert(err.message);
     }
@@ -100,21 +97,25 @@ export default function Signup() {
           <Text variant={"ghost"}>Continue with</Text>
           <br />
           <Box>
-            <Flex gap={5} justifyContent="center">
+            <Flex gap={4} justifyContent="center">
               <Box>
-                <Button onClick={handlegoogleSignUp}>
+                <Button
+                  variant="outline"
+                  colorScheme={"#50b6ff"}
+                  onClick={handlegoogleSignUp}
+                >
                   <FcGoogle />
                 </Button>
                 {/* <Image w={50} borderRadius="10px" src="https://www.jefit.com/images/rg_google.svg"></Image> */}
               </Box>
-              <Button>
+              <Button variant="outline" colorScheme={"#50b6ff"}>
                 <BsFacebook />
                 {handleFacebookSignUp}
               </Button>
               <Box>
                 {/* <Image w={50} borderRadius="10px"  src="https://www.jefit.com/images/rg_fb.svg"></Image> */}
               </Box>
-              <Button>
+              <Button variant="outline" colorScheme={"#50b6ff"}>
                 <BsApple />
               </Button>
               <Box>
@@ -132,6 +133,8 @@ export default function Signup() {
                   Username
                 </FormLabel>
                 <Input
+                  isInvalid
+                  errorBorderColor="#50b6ff"
                   id="username"
                   name="username"
                   type="username"
@@ -144,6 +147,8 @@ export default function Signup() {
                   Email
                 </FormLabel>
                 <Input
+                  isInvalid
+                  errorBorderColor="#50b6ff"
                   id="email"
                   name="email"
                   type="email"
@@ -156,6 +161,8 @@ export default function Signup() {
                   Password
                 </FormLabel>
                 <Input
+                  isInvalid
+                  errorBorderColor="#50b6ff"
                   id="password"
                   name="password"
                   type="password"
