@@ -1,9 +1,11 @@
 import { Box, Center, Container, Flex, Grid, GridItem, Square,Text,Image } from "@chakra-ui/react"
 import {AiOutlineInstagram} from "react-icons/ai"
 import {BsFacebook,BsTwitter} from "react-icons/bs"
+import BoxCrouser from "../components/BoxCrouser"
 import { Plans } from "../components/Plans"
 import { ProgressTracking } from "../components/ProgressTracking"
 import { SmartWatchIntegration } from "../components/SmartWatchIntegration"
+import { WorkoutPlan } from "../components/WorkoutPlan"
 // import  Example  from "../components/Carousel"
 import { WorkoutTracking } from "../components/WorkoutTracking"
 
@@ -86,11 +88,13 @@ export const Home=()=>{
             </Flex>
      </Container>
      {/* <Example /> */}
+     <BoxCrouser/>
 
      <WorkoutTracking />
      <SmartWatchIntegration />
      <ProgressTracking/>
      <Plans />
+     <WorkoutPlan/>
     </>
 
 }
