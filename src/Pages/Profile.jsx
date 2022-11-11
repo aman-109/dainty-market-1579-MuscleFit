@@ -2,7 +2,7 @@ import { Box, Button, Divider, Flex, Image, Input, position, Radio, RadioGroup, 
 import { useMedia } from "../MediaQuery/UseMedia"
 /* import "../App.css" */
 import BoxCrouser from "../components/BoxCrouser"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import MyRoutine from "../components/ProfileComp/MyRoutine"
 import Loading from "../components/Loading"
 import LogsPage from "../components/ProfileComp/LogsPage"
@@ -11,6 +11,7 @@ import Photos from "../components/ProfileComp/Photos"
 import Exercises from "../components/ProfileComp/Exercises"
 import Messages from "../components/ProfileComp/Messages"
 import { Link } from "react-router-dom"
+import { AuthContext } from "../context/AppContext"
 
 const init1 = {
     routines:false,
@@ -26,7 +27,8 @@ export const Profile = () => {
     const [section,setSection] = useState({...init1,routines:true})
     const {routines,logs,reports,photos,exercises,messages} = section;
     const [loading,setLoading] = useState(false)
-   
+    const [proImage,setProImage] = useState("https://www.jefit.com/images/noProfilePic220.png")
+    const {signUp,user} = useContext(AuthContext)
     const changePages = (value) => {
         setSection({...init1})
         setLoading(true)
@@ -36,7 +38,7 @@ export const Profile = () => {
             setLoading(false)
         }, 2500);
     }
-
+    console.log(user.photoURL)
 
     return (
         <>
@@ -44,7 +46,7 @@ export const Profile = () => {
             <Flex mt="100px" direction={!smallScreen?"column":"row"}  >
             {/* first */}
                 <Box m="auto"   w={["96%","40%","20%"]} mt="50px">
-                    <Image m="auto" borderRadius="50%" src="https://www.jefit.com/images/noProfilePic220.png" alt="profilePic" />
+                    <Image m="auto" borderRadius="50%" w="100%" src={user.photoURL?user.photoURL:proImage} alt="profilePic" />
                 <Flex onClick={()=>changePages("routines")} >
                     <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
                     <Text fontSize="sm"  > My Routines </Text>
