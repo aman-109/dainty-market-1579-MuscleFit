@@ -10,7 +10,7 @@ const Messages = () => {
 
     function saveMessage(){
       console.log(userMessage)
-      console.log(user)
+      console.log(user.photoURL)
     }
 
   return (
