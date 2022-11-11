@@ -1,5 +1,6 @@
-import { Box, Button } from '@chakra-ui/react'
+import { Box, Button ,Image,Heading,Text} from '@chakra-ui/react'
 import React, { useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom';
 import "../App.css"
 import { useMedia } from '../MediaQuery/UseMedia';
 
@@ -7,13 +8,14 @@ let varForCrouser = true;
 
 const BoxCrouser = () => {
     const {smallScreen} =  useMedia() 
+    const navigate = useNavigate();
     const hstyle = {
         display:"flex",
         overflowX:"scroll",
         scrollBehavior:"smooth",
-        border:"1px solid green",
+        
         width:"90%",
-        height:"200px",
+        height:"auto",
         margin:"auto",
         position:"relative",
         /* justifyContent:"space-around", */
@@ -49,27 +51,97 @@ const BoxCrouser = () => {
     }
     }
     
-    
+    // useEffect(()=>{
+    //     if(varForCrouser){
+    //         setInterval(() => {
+    //                 doIt2()
+    //         }, 3500);
+    //         varForCrouser = false
+    //     }
+    // },[])
 
     //ffggzxszd sadfsssasasdsdsadv sdsadsc asd
 
+    const handleClick1=()=>{
+        window.open(
+            "https://www.jefit.com/community/",
+            '_blank' // <- This is what makes it open in a new window.
+          );
+
+    }
+
+    const HandleClick2=()=>{
+       navigate("/signup")
+    }
 
 
   return (
-    <Box>
-        <Button onClick={doIt} >left</Button>
-        <Button onClick={doIt2}>right</Button>
+    <Box mt={16}>
+        {/* <Button onClick={doIt} >left</Button>
+        <Button onClick={doIt2}>right</Button> */}
+                <Heading as='h3' size='xl' color='#2F373D'>CONNECT WITH OVER 10 MILLION JEFIT MEMBERS</Heading>
+
+                <Text 
+        fontFamily='"DM Sans", sans-serif'
+        fontSize='18px'
+        fontWeight='600'
+        lineHeight='25px'
+        color='#2f373d'
+        mt={6}
+        ml={8}
+        mr={10}
+        mb={4}
+        >As the most active workout community, we invite you and your friends to join us and support each other.</Text>
+
         <Box id="hello" onMouseEnter={runIt}  ref={boxRef} style={hstyle}>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >1</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >2</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >3</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >4</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >5</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >6</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >7</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >8</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >9</Box>
-            <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >10</Box>
+            <Box className="look"  w='10%' style={{border:'1px solid green'}} >
+                <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/15members-150x150.png.webp" alt="1"></Image>
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/20members-150x150.png.webp" alt="2"></Image>
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/7members-150x150.png.webp" alt="3"></Image>
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/12members-150x150.png.webp" alt="4"></Image>
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                 <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/18members-150x150.png.webp" alt="5"></Image>
+
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                 <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/8members-150x150.png.webp" alt="6"></Image>
+
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                   <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/19members-150x150.png.webp" alt="7"></Image>
+
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/15members-150x150.png.webp" alt="8"></Image>
+
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/20members-150x150.png.webp" alt="9"></Image>
+
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                 <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/7members-150x150.png.webp" alt="10"></Image>
+
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/12members-150x150.png.webp" alt="4"></Image>
+            </Box>
+            <Box className="look" style={{width:"20%",height:"100%",border:"1px solid red", }} >
+                 <Image src="https://www.jefit.com/wp/wp-content/uploads/2021/11/18members-150x150.png.webp" alt="5"></Image>
+
+            </Box>
+        </Box>
+        <Box>
+        <Button onClick={handleClick1} mt={4} mr={4}  pl={6} pr={6}  variant='solid' bg='#39B7FF' color='white' fontFamily='Montserrat, sans-serif' fontSize='20px'  style={{fontWight:'700',borderRadius:"20px"}}>TRENDING TOPICS</Button>
+        <Button onClick={HandleClick2} mt={6} ml={4} pl={8} pr={8}  variant='solid' bg='#39B7FF' color='white' fontFamily='Montserrat, sans-serif' fontSize='20px'  style={{fontWight:'700',borderRadius:"20px"}}>JOIN NOW</Button>
+
         </Box>
 
     </Box>

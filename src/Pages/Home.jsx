@@ -5,6 +5,7 @@ import BoxCrouser from "../components/BoxCrouser"
 import { Plans } from "../components/Plans"
 import { ProgressTracking } from "../components/ProgressTracking"
 import { SmartWatchIntegration } from "../components/SmartWatchIntegration"
+import { WorkoutPlan } from "../components/WorkoutPlan"
 // import  Example  from "../components/Carousel"
 import { WorkoutTracking } from "../components/WorkoutTracking"
 
@@ -93,6 +94,7 @@ export const Home=()=>{
      <SmartWatchIntegration />
      <ProgressTracking/>
      <Plans />
+     <WorkoutPlan/>
     </>
 
 }
