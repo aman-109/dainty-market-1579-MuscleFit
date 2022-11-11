@@ -1,7 +1,6 @@
 import { Box, Button, Divider, Flex, Image, Input, position, Radio, RadioGroup, Select, SimpleGrid, Spacer, Stack, Text } from "@chakra-ui/react"
 import { useMedia } from "../MediaQuery/UseMedia"
 /* import "../App.css" */
-import BoxCrouser from "../components/BoxCrouser"
 import { useContext, useState } from "react"
 import MyRoutine from "../components/ProfileComp/MyRoutine"
 import Loading from "../components/Loading"
@@ -38,7 +37,7 @@ export const Profile = () => {
             setLoading(false)
         }, 2500);
     }
-    console.log(user.photoURL)
+    console.log(user)
 
     return (
         <>
@@ -46,7 +45,7 @@ export const Profile = () => {
             <Flex mt="100px" direction={!smallScreen?"column":"row"}  >
             {/* first */}
                 <Box m="auto"   w={["96%","40%","20%"]} mt="50px">
-                    <Image m="auto" borderRadius="50%" w="100%" src={user.photoURL?user.photoURL:proImage} alt="profilePic" />
+                    <Image m="auto" borderRadius="50%" w="100%" src={proImage} alt="profilePic" />
                 <Flex onClick={()=>changePages("routines")} >
                     <Image w="20px" mr="5px" src="https://www.jefit.com/images/routine_icon_64_64.png" />
                     <Text fontSize="sm"  > My Routines </Text>
