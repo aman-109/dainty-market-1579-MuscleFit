@@ -1,8 +1,12 @@
 import { Box, Button } from '@chakra-ui/react'
 import React, { useEffect, useRef } from 'react'
 import "../App.css"
+import { useMedia } from '../MediaQuery/UseMedia';
+
+let varForCrouser = true;
 
 const BoxCrouser = () => {
+    const {smallScreen,mediumScreen,largeScreen} =  useMedia() 
     const hstyle = {
         display:"flex",
         overflowX:"scroll",
@@ -36,11 +40,16 @@ const BoxCrouser = () => {
         /* console.log(box.scrollLeft) */
     }
 
-    useEffect(()=>{
+    function runIt(){
+        if(varForCrouser){
         setInterval(() => {
                 doIt2()
         }, 3500);
-    },[])
+        varForCrouser = false
+    }
+    }
+    
+    
 
     //ffggzxszd sadfsssasasdsdsadv sdsadsc asd
 
@@ -50,11 +59,7 @@ const BoxCrouser = () => {
     <Box>
         <Button onClick={doIt} >left</Button>
         <Button onClick={doIt2}>right</Button>
-        <div id='yes'>
-            h
-        </div>
-        
-        <Box id="hello" ref={boxRef} style={hstyle}>
+        <Box id="hello" onMouseEnter={runIt}  ref={boxRef} style={hstyle}>
             <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >1</Box>
             <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >2</Box>
             <Box className="look" style={{width:"25%",height:"100%",border:"1px solid red", }} >3</Box>

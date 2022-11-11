@@ -1,6 +1,7 @@
 import { Box, Center, Container, Flex, Grid, GridItem, Square,Text,Image } from "@chakra-ui/react"
 import {AiOutlineInstagram} from "react-icons/ai"
 import {BsFacebook,BsTwitter} from "react-icons/bs"
+import BoxCrouser from "../components/BoxCrouser"
 import { Plans } from "../components/Plans"
 import { ProgressTracking } from "../components/ProgressTracking"
 import { SmartWatchIntegration } from "../components/SmartWatchIntegration"
