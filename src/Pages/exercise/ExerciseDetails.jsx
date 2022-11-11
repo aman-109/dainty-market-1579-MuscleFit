@@ -38,7 +38,7 @@ export default function ExerciseDetails() {
                             <Box w="100%" borderBottom="1px solid rgb(222, 226, 230)">
                                 <Text color="rgb(119, 119, 119)" fontSize="22px" as="b">Exercise Details</Text>
                             </Box>
-                            <Flex textAlign="left" flexDirection="column" fontSize="14px" gap="5px" fontSize="14px" padding="10px">
+                            <Flex textAlign="left" flexDirection="column" fontSize="14px" gap="5px" padding="10px">
                                 <Text color="rgb(85, 85, 85)"as="b">Main Muscle Group : <span style={{color:"rgb(132, 133, 134)", fontWeight:"400"}}>Abs</span></Text>
                                 <Text color="rgb(85, 85, 85)"as="b">Detailed Muscle Group : <span style={{color:"rgb(132, 133, 134)", fontWeight:"400"}}>Back</span></Text>
                                 <Text color="rgb(85, 85, 85)"as="b">Other Muscle Groups : <span style={{color:"rgb(132, 133, 134)", fontWeight:"400"}}>Back</span></Text>
