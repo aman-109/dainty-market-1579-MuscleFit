@@ -85,13 +85,14 @@ const Muscle = () => {
         {data &&
           data.map((ele, i) => (
             <SingleExercise
-              key={ele._id.$oid}
-              id={ele._id.$oid}
+              key={ele.id}
+              id={ele.id}
               name={ele.name}
               type={ele.type}
               equipment={ele.equipment}
               image={ele.image_urls}
-              muscle_group={ele.muscle}
+              muscle_group={ele.main_group}
+              link={ele.main_group}
             />
           ))}
         <Pagination
