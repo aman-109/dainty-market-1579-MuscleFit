@@ -2,17 +2,14 @@ import { Box, Container, Flex, Heading ,Text,Button} from "@chakra-ui/react"
 import {AiFillStar} from 'react-icons/ai'
 import {TiStarburst} from 'react-icons/ti'
 import {FaCrown} from 'react-icons/fa'
-
+import { useNavigate } from "react-router-dom"
 
 
 export const Plans=()=>{
-    const handleClick=(path='https://www.jefit.com/signup/')=>{
-        // window.location.href=path
-        window.open(
-         path,
-         '_blank' // <- This is what makes it open in a new window.
-       );
-       }
+    const navigate=useNavigate()
+    const HandleClick=()=>{
+        navigate("/signup")
+     }
 
        const handleClick1=()=>{
         window.open(
@@ -41,7 +38,7 @@ export const Plans=()=>{
                             <br />
                             Support interval training
                 </Text>
-                <Button onClick={handleClick} pl={6} pr={6} mt={6} mb={4} variant='solid' bg='#404040' color='white' fontFamily='Montserrat, sans-serif' fontSize='16px'  style={{'fontWight':'400','borderRadius':"20px",'border':'2px solid white'}}>FREE DOWNLOAD</Button>
+                <Button onClick={HandleClick} pl={6} pr={6} mt={6} mb={4} variant='solid' bg='#404040' color='white' fontFamily='Montserrat, sans-serif' fontSize='16px'  style={{'fontWight':'400','borderRadius':"20px",'border':'2px solid white'}}>FREE DOWNLOAD</Button>
 
 
             </Box>

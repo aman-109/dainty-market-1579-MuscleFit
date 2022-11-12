@@ -5,7 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 import{ChevronDownIcon, HamburgerIcon} from "@chakra-ui/icons"
 import { AuthContext } from '../context/AppContext';
 
-
+const stikc={
+  position: '-webkit-sticky',
+  position: 'sticky',
+  top: '0',
+}
 
 const Navbar = () => {
   const {user,logOut}=useContext(AuthContext)
@@ -20,7 +24,7 @@ const Navbar = () => {
   };
   
   return (
-    <Box >
+    <Box style={stikc}>
     <Box bg="#257CFF" h="auto" p={0} >
       <Flex w="90%" m="auto" p={2} gap={{base:'20',md:'20',lg:'10'}} 
         sx={{
