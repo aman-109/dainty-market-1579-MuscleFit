@@ -77,7 +77,7 @@ const Muscle = () => {
       >
         <Box borderBottom={"1px solid"} pt={4} pb={1} w="60%">
           <Text fontSize="md" fontWeight="bold" textAlign={"start"}>
-            Biceps Exercise Database
+           Exercise Database
           </Text>
         </Box>
         {/* result here */}
