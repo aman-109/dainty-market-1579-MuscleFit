@@ -1,11 +1,22 @@
 import { Box, Button, Grid, Image, Text } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
-import data from "./data.json"
-
+// import data from "./data.json"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 
 export default function CreateExercise(){
-    // console.log(data[1])
+    const [data, setdata]=useState([])
+
+    useEffect(()=>{
+       getdata()
+    },[])
+    const getdata=async()=> {
+        let dt=axios.get("https://mockserver-uzrw.onrender.com/exercises")
+        let final=await dt
+        setdata(final.data)
+    }
+    console.log(data)
 
     return (
         <Box>
@@ -15,9 +26,9 @@ export default function CreateExercise(){
                 {
                     data.map((el)=>(
                         <Box key={el.id} w="100%">
-                            <Link to={`/exercise/details/${el.id}`}>
-                                <Image src={el.image1} w="100%"/>
-                                <Text fontSize="14px" margin="0px" color="rgb(51, 181, 229)" fontWeight="500">{el.title}</Text>
+                            <Link to={`/exercise/details/exercises-${el.id}`}>
+                                <Image src={el.image_urls[0]} w="100%"/>
+                                <Text fontSize="14px" margin="0px" color="rgb(51, 181, 229)" fontWeight="500">{el.name}</Text>
                                 <Text fontSize="14px" margin="0px">{el.main_group},{el.detailed_group}</Text>
                             </Link>
                         </Box>

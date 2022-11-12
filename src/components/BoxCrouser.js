@@ -79,8 +79,8 @@ const BoxCrouser = () => {
 
   return (
     <Box mt={16}>
-        <Button onClick={doIt} >left</Button>
-        <Button onClick={doIt2}>right</Button>
+        {/* <Button onClick={doIt} >left</Button>
+        <Button onClick={doIt2}>right</Button> */}
                 <Heading as='h3' size='xl' color='#2F373D'>CONNECT WITH OVER 10 MILLION JEFIT MEMBERS</Heading>
 
                 <Text 

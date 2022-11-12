@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../MediaQuery/UseMedia";
 
-const SingleExercise = ({ id, name, equipment, type, image, muscle_group }) => {
+const SingleExercise = ({ id, name, equipment, type,link, image, muscle_group }) => {
   const { smallScreen, mediumScreen } = useMedia();
   function capitalizeFirstLetter(string) {
     return string[0].toUpperCase() + string.slice(1);
@@ -33,7 +33,7 @@ const SingleExercise = ({ id, name, equipment, type, image, muscle_group }) => {
           />
         </Box>
         <Box  w="40%" p="10px 20px" textAlign="start">
-          <Link to={`/exercise/muscle/${id}`}>
+          <Link to={`/exercise/details/${link}-${id}`}>
             <Text
               fontSize={!smallScreen ? "md" : "xl"}
               color="#0E709A"
