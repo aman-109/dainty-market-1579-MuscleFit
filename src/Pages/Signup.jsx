@@ -91,12 +91,12 @@ export default function Signup() {
       <br />
       <br />
       <br />
-      <Flex align="center" w="40%" justify="center" m={"auto"} h="100vh">
+      <Flex align="center"  justify="center" m={"auto"} h="100vh" w={["96%","65%","45%"]}>
         <Box bg="#ebf7ff" p={39} rounded="md" textAlign={"center"}>
           <Heading variant={"solid"}>CREATE ACCOUNT</Heading>
           <Text variant={"ghost"}>Continue with</Text>
           <br />
-          <Box>
+          <Box direction={{ base: 'column', md: 'column',lg:'row' }}>
             <Flex gap={4} justifyContent="center">
               <Box>
                 <Button
@@ -190,6 +190,11 @@ export default function Signup() {
           </form>
         </Box>
       </Flex>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </Box>
+    
   );
 }
