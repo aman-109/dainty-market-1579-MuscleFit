@@ -17,7 +17,7 @@ export const AuthContext = React.createContext();
 
 export default function AuthContextProvider({ children }) {
   const [user, setUser] = useState({});
-
+  console.log(user)
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
