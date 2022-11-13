@@ -26,6 +26,7 @@ import Exercises from "../components/ProfileComp/Exercises";
 import Messages from "../components/ProfileComp/Messages";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AppContext";
+import axios from "axios";
 
 const init1 = {
   routines: false,
@@ -45,6 +46,30 @@ export const Profile = () => {
     "https://www.jefit.com/images/noProfilePic220.png"
   );
   const { signUp, user } = useContext(AuthContext);
+  const a = {
+    email: user.email,
+    password: user.uid,
+    userDetail: {
+      height: 2,
+      weight: 5,
+      birth: {
+        day: 3,
+        month: 4,
+        year: 1990,
+      },
+      gender: "Male",
+      units: true,
+    },
+    message: ["sujee1t"],
+    photos: ["sujeet2", "hello"],
+    report: [
+      {
+        exercise_name: "1",
+        image: "imag",
+        muscle_name: "aaja",
+      },
+    ],
+  };
   const changePages = (value) => {
     setSection({ ...init1 });
     setLoading(true);
@@ -54,7 +79,16 @@ export const Profile = () => {
       setLoading(false);
     }, 2500);
   };
-  console.log(user);
+  //   console.log(user.email);
+
+  const userCreate = async () => {
+    let user = await axios.post(
+      `https://backendmusclefit.onrender.com/users`,
+      a
+    );
+    console.log("user", user);
+  };
+  userCreate();
 
   return (
     <>
