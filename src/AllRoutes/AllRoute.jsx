@@ -1,3 +1,4 @@
+import {PrivateRoute} from "../AllRoutes/PrivateRoute"
 import React from 'react'
 import{Routes,Route} from "react-router-dom"
 import Photos from '../components/ProfileComp/Photos'
@@ -16,11 +17,11 @@ const AllRoute = () => {
             <Route path="/" element={<Home/>}> </Route>
             <Route path="/login" element={<Login/>}> </Route>
             <Route path="/signup" element={<Signup/>}></Route>
-            <Route path='/profile' element={<Profile/>} ></Route>
+            <Route path='/profile' element={<PrivateRoute> <Profile/> </PrivateRoute>} ></Route>
             <Route path='/exercise' element={<Exercise/>} ></Route>
             <Route path='/exercise/muscle' element={<Muscle/>} ></Route>
             <Route path='/profile/photos' element={<Photos/> }></Route>
-            <Route path='/exercise/details/:id' element={<ExerciseDetails/> }></Route>
+            <Route path='/exercise/details/:id' element={<PrivateRoute> <ExerciseDetails/> </PrivateRoute>}></Route>
         </Routes>
     </div>
   )

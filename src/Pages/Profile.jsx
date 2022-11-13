@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { useMedia } from "../MediaQuery/UseMedia";
 /* import "../App.css" */
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MyRoutine from "../components/ProfileComp/MyRoutine";
 import Loading from "../components/Loading";
 import LogsPage from "../components/ProfileComp/LogsPage";
@@ -40,36 +40,42 @@ const init1 = {
 export const Profile = () => {
   const { smallScreen, mediumScreen } = useMedia();
   const [section, setSection] = useState({ ...init1, reports: true });
-  const { routines, logs, reports, photos, exercises, messages } = section;
+  const { routines, logs, reports, photos, exercises, messages } = section; 
   const [loading, setLoading] = useState(false);
-  const [proImage, setProImage] = useState(
-    "https://www.jefit.com/images/noProfilePic220.png"
-  );
+  let photoURL = "https://www.jefit.com/images/noProfilePic220.png"
+  let email = "123@gmail.com"
+  let uid = "123456"
   const { signUp, user } = useContext(AuthContext);
-  const a = {
-    email: user.email,
-    password: user.uid,
-    userDetail: {
-      height: 2,
-      weight: 5,
-      birth: {
-        day: 3,
-        month: 4,
-        year: 1990,
-      },
-      gender: "Male",
-      units: true,
+  if(user){
+   photoURL=user.photoURL
+   email = user.email
+   uid = user.uid
+    console.log(user)
+  }
+
+  let val = {
+    "email":email,
+    "password":uid,
+    "userDetail":{
+        "height":2,
+        "weight":5,
+        "birth":{
+            "day":3,
+            "month":4,
+            "year":1990
+        },
+        "gender":"Male",
+        "units":true
     },
-    message: ["sujee1t"],
-    photos: ["sujeet2", "hello"],
-    report: [
-      {
-        exercise_name: "1",
-        image: "imag",
-        muscle_name: "aaja",
-      },
-    ],
-  };
+    "message":["sujee1t"],
+    "photos":["sujeet2","hello"],
+    "report":[{
+        "exercise_name":"1",
+        "image":"imag",
+        "muscle_name":"aaja"
+    }]
+}
+
   const changePages = (value) => {
     setSection({ ...init1 });
     setLoading(true);
@@ -79,16 +85,15 @@ export const Profile = () => {
       setLoading(false);
     }, 2500);
   };
-  //   console.log(user.email);
+  /* console.log(user); */
+  const createUser = async () => {
+    let getUset = await axios.post("https://backendmusclefit.onrender.com/users",val)
+    console.log("getUser",getUset)
+  }
 
-  const userCreate = async () => {
-    let user = await axios.post(
-      `https://backendmusclefit.onrender.com/users`,
-      a
-    );
-    console.log("user", user);
-  };
-  userCreate();
+  useEffect(()=>{
+    createUser()
+  },[])
 
   return (
     <>
@@ -100,7 +105,7 @@ export const Profile = () => {
               m="auto"
               borderRadius="50%"
               w="100%"
-              src={user.photoURL}
+              src={photoURL}
               alt="profilePic"
             />
             <Flex onClick={() => changePages("routines")}>

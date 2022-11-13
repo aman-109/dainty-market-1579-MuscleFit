@@ -20,7 +20,7 @@ export default function AuthContextProvider({ children }) {
     email: "amanmandjasdjl@gmail.com",
     photoURL: "https://www.jefit.com/images/noProfilePic220.png",
   });
-  // console.log(user)
+  /* console.log(user.email) */
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
