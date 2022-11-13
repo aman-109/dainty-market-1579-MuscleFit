@@ -42,15 +42,20 @@ export const Profile = () => {
   const [section, setSection] = useState({ ...init1, reports: true });
   const { routines, logs, reports, photos, exercises, messages } = section; 
   const [loading, setLoading] = useState(false);
-  const [proImage, setProImage] = useState(
-    "https://www.jefit.com/images/noProfilePic220.png"
-  );
+  let photoURL = "https://www.jefit.com/images/noProfilePic220.png"
+  let email = "123@gmail.com"
+  let uid = "123456"
   const { signUp, user } = useContext(AuthContext);
-  console.log(user)
+  if(user){
+   photoURL=user.photoURL
+   email = user.email
+   uid = user.uid
+    console.log(user)
+  }
 
   let val = {
-    "email":user?.email,
-    "password":user?.uid,
+    "email":email,
+    "password":uid,
     "userDetail":{
         "height":2,
         "weight":5,
@@ -100,7 +105,7 @@ export const Profile = () => {
               m="auto"
               borderRadius="50%"
               w="100%"
-              src={user?.photoURL}
+              src={photoURL}
               alt="profilePic"
             />
             <Flex onClick={() => changePages("routines")}>
