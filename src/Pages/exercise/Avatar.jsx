@@ -7,7 +7,7 @@ export default function Avatar(){
 
     return (
         <Box  position="relative" w={{base:"90vw",md:"75vw",lg:"45vw"}} h={{base:"60vw",md:"50vw",lg:"30vw"}} margin="auto">
-            <Grid style={{zIndex:"1000"}} position="relative" templateColumns="repeat(4,1fr)" templateRows="repeat(5,1fr)" w="100%" h="100%">
+            <Grid style={{zIndex:"2"}} position="relative" templateColumns="repeat(4,1fr)" templateRows="repeat(5,1fr)" w="100%" h="100%">
                 <GridItem display="flex" alignItems="center" justifyContent="center"><Button fontSize="12px" h="35px" backgroundColor="rgb(33, 144, 199)" color="white" _hover={{backgroundColor:"rgb(33, 110, 199)"}}>Triceps</Button></GridItem >
                 <GridItem display="flex" alignItems="center" justifyContent="center" colSpan={2}></GridItem >
                 <GridItem display="flex" alignItems="center" justifyContent="center"><Button fontSize="12px" h="35px" backgroundColor="rgb(33, 144, 199)" color="white" _hover={{backgroundColor:"rgb(33, 110, 199)"}}>Sholders</Button></GridItem >
