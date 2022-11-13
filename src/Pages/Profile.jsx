@@ -57,22 +57,17 @@ export const Profile = () => {
     "email":email,
     "password":uid,
     "userDetail":{
-        "height":2,
-        "weight":5,
+        "height":0,
+        "weight":0,
         "birth":{
-            "day":3,
-            "month":4,
-            "year":1990
         },
-        "gender":"Male",
+        
         "units":true
     },
-    "message":["sujee1t"],
-    "photos":["sujeet2","hello"],
+    "message":[""],
+    "photos":[""],
     "report":[{
-        "exercise_name":"1",
-        "image":"imag",
-        "muscle_name":"aaja"
+    
     }]
 }
 
