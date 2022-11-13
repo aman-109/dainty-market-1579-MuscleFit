@@ -24,7 +24,7 @@ const Navbar = () => {
   };
   
   return (
-    <Box style={stikc}>
+    <Box style={stikc} zIndex="10000">
     <Box bg="#257CFF" h="auto" p={0} >
       <Flex w="90%" m="auto" p={2} gap={{base:'20',md:'20',lg:'10'}} 
         sx={{
