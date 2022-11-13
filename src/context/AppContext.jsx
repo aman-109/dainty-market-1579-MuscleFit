@@ -7,7 +7,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
-  FacebookAuthProvider
+  FacebookAuthProvider,
 } from "firebase/auth";
 
 import { useEffect } from "react";
@@ -16,8 +16,11 @@ import { auth } from "../Pages/firebase-config";
 export const AuthContext = React.createContext();
 
 export default function AuthContextProvider({ children }) {
-  const [user, setUser] = useState({});
-  console.log(user)
+  const [user, setUser] = useState({
+    email: "amanmandjasdjl@gmail.com",
+    photoURL: "https://www.jefit.com/images/noProfilePic220.png",
+  });
+  // console.log(user)
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
