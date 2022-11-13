@@ -83,7 +83,7 @@ export const Profile = () => {
   /* console.log(user); */
   const createUser = async () => {
     let getUset = await axios.post("https://backendmusclefit.onrender.com/users",val)
-    /* console.log("getUser",getUset) */
+    console.log("getUser",getUset)
   }
 
   useEffect(()=>{
