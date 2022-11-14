@@ -45,7 +45,7 @@ export const Profile = () => {
   let photoURL = "https://www.jefit.com/images/noProfilePic220.png"
   let email = "123@gmail.com"
   let uid = "123456"
-  const { signUp, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   if(user){
    photoURL=user.photoURL
    email = user.email
