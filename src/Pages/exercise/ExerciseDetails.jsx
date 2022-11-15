@@ -32,11 +32,11 @@ export default function ExerciseDetails() {
   };
 
   const sentReport = async (x) => {
-    let user = await axios.get(
+    let userone = await axios.get(
       `https://backendmusclefit.onrender.com/users/${user.email}`
     );
-    user = user.data;
-    let newUser = { ...user, report: [...user.report, x] };
+    userone = userone.data;
+    let newUser = { ...userone, report: [...userone.report, x] };
 
     let updatedUser = await axios.patch(
       `https://backendmusclefit.onrender.com/users`,

@@ -39,13 +39,13 @@ const init1 = {
 
 export const Profile = () => {
   const { smallScreen, mediumScreen } = useMedia();
-  const [section, setSection] = useState({ ...init1, reports: true });
+  const [section, setSection] = useState({ ...init1, routines: true });
   const { routines, logs, reports, photos, exercises, messages } = section; 
   const [loading, setLoading] = useState(false);
   let photoURL = "https://www.jefit.com/images/noProfilePic220.png"
   let email = "123@gmail.com"
   let uid = "123456"
-  const { signUp, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   if(user){
    photoURL=user.photoURL
    email = user.email

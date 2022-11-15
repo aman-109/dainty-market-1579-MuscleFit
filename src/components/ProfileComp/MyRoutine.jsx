@@ -1,15 +1,19 @@
-import React from 'react'
-import { Box, Button, Divider, Flex, Image, Input, position, Radio, RadioGroup, Select, SimpleGrid, Spacer, Stack, Text } from "@chakra-ui/react"
+import React, { useContext } from 'react'
+import { Box, Button, Divider, Flex, Image, Input, position, Radio, RadioGroup, Select, SimpleGrid, Spacer, Stack, Text, useToast } from "@chakra-ui/react"
 import { useState } from "react"
-
+import axios from 'axios'
+import { AuthContext } from '../../context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
 const MyRoutine = () => {
-
+    const {user}=useContext(AuthContext)
     const [gender,setGender] = useState("Male")
     const [units,setUnits] = useState(true)
     const [birth,setBirth] = useState({month:1,day:1,year:1989})
     const [height,setHeight] = useState(0)
     const [weight,setWeight] = useState(0)
+    const toast = useToast()
+    
 
 
     function genderChange(e){
@@ -23,8 +27,9 @@ const MyRoutine = () => {
     }
 
 
+
 /* save profile button */
-    const saveData = () => {
+    const saveData = async() => {
       let newUserData = {
         birth:birth,
         height:height,
@@ -33,13 +38,36 @@ const MyRoutine = () => {
         units:units,
       }
       console.log(newUserData)
+      await sentReportOne(newUserData)
+      toast({
+        title: "Data save successfully",
+        description: "Your all information updated successfully",
+        status: 'success',
+        duration: 6000,
+        isClosable: true,
+      })
+
     }
 
 
 
 
 
+    const sentReportOne = async (x) => {
+      let userone = await axios.get(
+        `https://backendmusclefit.onrender.com/users/${user.email}`
+      );
+      userone = userone.data;
+      let newUser = { ...userone, userDetail: x };
+  
+      let updatedUser = await axios.patch(
+        `https://backendmusclefit.onrender.com/users`,
+        newUser
+      );
+      console.log("updatedUser:", updatedUser);
+    };
 
+  
 
   return (
         <Box>
