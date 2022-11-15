@@ -1,9 +1,9 @@
 
-import React, { useContext} from 'react'
+import React, { useContext, useState} from 'react'
 import { Box, Button, Flex, Menu, MenuButton, MenuItem, MenuList, Spacer } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import{ChevronDownIcon, HamburgerIcon} from "@chakra-ui/icons"
-import { AuthContext } from '../context/AppContext';
+import { AuthContext,user } from '../context/AppContext';
 
 
 const stikc={
@@ -14,6 +14,8 @@ const stikc={
 }
 
 const Navbar = () => {
+  
+  
   const {user,logOut}=useContext(AuthContext)
   const navigate=useNavigate()
   const handleLogout = async () => {
@@ -24,6 +26,8 @@ const Navbar = () => {
       console.log(error.message);
     }
   };
+  
+  
   
   return (
     <Box style={stikc} zIndex="10000">
@@ -186,7 +190,7 @@ const Navbar = () => {
         
         <Link to="/signup">
           
-          <Button  color="#3CB8FF" w="120px"  m="auto" fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} disabled={{user}}>
+          <Button  color="#3CB8FF" w="120px"  m="auto" fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} disabled={user}>
             Signup
           </Button>
         </Link>
