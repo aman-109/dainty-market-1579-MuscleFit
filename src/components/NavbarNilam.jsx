@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import{ChevronDownIcon, HamburgerIcon} from "@chakra-ui/icons"
 import { AuthContext } from '../context/AppContext';
 
+
 const stikc={
   position: '-webkit-sticky',
   position: 'sticky',
@@ -184,7 +185,8 @@ const Navbar = () => {
         <Box alignSelf="center"   ml={{base:'12',md:'12',lg:'0'}} >
         
         <Link to="/signup">
-          <Button color="#3CB8FF" w="120px"  m="auto" fontFamily='"DM Sans", sans-serif;' fontSize={"13px"}>
+          
+          <Button  color="#3CB8FF" w="120px"  m="auto" fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} disabled={{user}}>
             Signup
           </Button>
         </Link>
