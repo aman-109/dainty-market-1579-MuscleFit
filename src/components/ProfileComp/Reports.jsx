@@ -85,9 +85,9 @@ const Reports = () => {
                             <tr >
                             <td style={{color:'#33B5E5'}}>{el.muscle_name}</td>
                             <td style={{color:'#33B5E5'}}>{el.exercise_name}</td>
-                            <td style={{color:'#555555'}}>{el.timer}</td>
-                            <td style={{color:'#555555'}}>{el.reps}</td>
-                            <td style={{color:'#555555'}}>{el.sets}</td>
+                            <td style={{color:'#555555'}}>60 sec</td>
+                            <td style={{color:'#555555'}}>8</td>
+                            <td style={{color:'#555555'}}>3</td>
                             <td><button><MdOutlineTrackChanges style={{'margin':'auto','color':'#33B5E5'}}/></button></td>
                           </tr>
                           ))
