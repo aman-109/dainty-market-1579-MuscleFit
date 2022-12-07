@@ -17,7 +17,7 @@ const navigate=useNavigate()
                  fontSize='33px'
                  
                  color='#2F373D'
-                >JEFIT COVERS ALL OF YOUR WORKOUT NEEDS</Text>
+                >MUSCLEFIT COVERS ALL OF YOUR WORKOUT NEEDS</Text>
 
 
 <Flex  direction={{ base: 'column', md: 'column',lg:'row' }} w='100%' mt={6}>

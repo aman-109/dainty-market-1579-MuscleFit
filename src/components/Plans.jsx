@@ -56,7 +56,7 @@ export const Plans=()=>{
             Comprehensive training reports <br />
             Advanced tracking features  <br />
             Compare records with friends  <br />
-            Exercise tips from JEFIT experts  <br />
+            Exercise tips from MUSCLEFIT experts  <br />
             Premium workout plans
             More...
                 </Text>
@@ -87,7 +87,7 @@ Yearly</Heading>
                     <br />
                     Compare records with friends
                     <br />
-                    Exercise tips from JEFIT experts
+                    Exercise tips from MUSCLEFIT experts
                     <br />
                     Premium workout plans
                     <br/>
