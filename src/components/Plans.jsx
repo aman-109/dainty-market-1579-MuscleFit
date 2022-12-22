@@ -21,8 +21,8 @@ export const Plans=()=>{
     return <>
     <Container maxW='100%'  pt={20} >
         <Heading as='h2' size='xl' color='#2F373D'>PLANS THAT SUIT YOU BEST</Heading>
-        <Flex direction={{ base: 'column', md: 'column',lg:'row' }} mt={10} style={{'justifyContent':'space-evenly'}} gap={{'base':'6','md':'6','lg':'0'}}>
-            <Box pl={{ base: '12', md: '12',lg:'8' }} pr={6} pt={16} bg='#404040' color='white' w={{ base: '60%', md: '50%',lg:'26%' }} style={{'textAlign':'start','borderRadius':'5px'}} m={{ base: 'auto', md: 'auto',lg:'0'}} >
+        <Flex  mt={10} direction={{ base: 'column', md: 'column',lg:'row' }} style={{'justifyContent':'space-evenly'}} gap={{'base':'6','md':'6','lg':'0'}}>
+            <Box  pr={6} pl={{ base: '12', md: '12',lg:'8' }} pt={16} bg='#404040' color='white' w={{ base: '90%', md: '50%',lg:'26%' }} style={{'textAlign':'start','borderRadius':'5px'}} m={{ base: 'auto', md: 'auto',lg:'0'}} >
                 <AiFillStar style={{'height':'auto','width':'22%'}} />
                 <Heading as='h2' size='xl' mt={8} fontFamily='Montserrat, sans-serif'>FREE</Heading>
                         <Text mt={8}
@@ -42,7 +42,7 @@ export const Plans=()=>{
 
 
             </Box>
-            <Box pl={{ base: '12', md: '12',lg:'8' }} pr={6} pt={16} bg='#404040' color='white' w={{ base: '60%', md: '50%',lg:'26%' }} style={{'textAlign':'start','borderRadius':'5px'}} m={{ base: 'auto', md: 'auto',lg:'0'}} >
+            <Box  pr={6} pl={{ base: '12', md: '12',lg:'8' }} pt={16} bg='#404040' color='white' w={{ base: '90%', md: '50%',lg:'26%' }} style={{'textAlign':'start','borderRadius':'5px'}} m={{ base: 'auto', md: 'auto',lg:'0'}} >
                 <TiStarburst style={{'height':'auto','width':'22%'}} />
                 <Heading as='h2' size='xl' mt={8} fontFamily='Montserrat, sans-serif'>Elite
                        <br /> Monthly</Heading>
@@ -69,7 +69,7 @@ export const Plans=()=>{
                     $12.99 billed / month
                 </Text>
             </Box>
-            <Box pl={{ base: '12', md: '12',lg:'8' }} pr={6} pt={16} bg='#404040' color='white' w={{ base: '60%', md: '50%',lg:'26%' }} style={{'textAlign':'start','borderRadius':'5px'}}  m={{ base: 'auto', md: 'auto',lg:'0'}} >
+            <Box  pr={6} pl={{ base: '12', md: '12',lg:'8' }} pt={16} bg='#404040' color='white' w={{ base: '90%', md: '50%',lg:'26%' }} style={{'textAlign':'start','borderRadius':'5px'}}  m={{ base: 'auto', md: 'auto',lg:'0'}} >
                 <FaCrown style={{'height':'auto','width':'22%'}} />
                 <Heading as='h2' size='xl' mt={8} fontFamily='Montserrat, sans-serif'>Elite <br/>
 Yearly</Heading>
