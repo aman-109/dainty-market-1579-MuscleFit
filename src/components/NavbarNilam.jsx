@@ -7,10 +7,10 @@ import { AuthContext,user } from '../context/AppContext';
 
 
 const stikc={
-  position: '-webkit-sticky',
-  position: 'sticky',
-  top: '0',
-  zIndex:100
+  position:'-webkit-sticky',
+  position:'sticky',
+  zIndex:100,
+   top:'0'
 }
 
 const Navbar = () => {
@@ -41,7 +41,9 @@ const Navbar = () => {
   
          }}
       >
-         <Box display={{'base':'visible','md':'visible','lg':'none'}} ml={{base:'12',md:'12','lg':'0'}}>
+         <Box  ml={{base:'12',md:'12','lg':'0'}}
+         display={{'base':'visible','md':'visible','lg':'none'}}
+         >
       <Menu >
   <MenuButton as={Button} w="1px" mt="30%" bg="#257CFF" p={0}>
     <HamburgerIcon ml="0px" w={6} h={6} style={{color:"white"}} />
@@ -87,20 +89,23 @@ const Navbar = () => {
             </Menu>
     </MenuItem>
     <MenuItem>
-            <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2} ml={2} mr={4} mb={2}>
+            <Box  fontSize={"15px"} mt={2} ml={2} mr={4} mb={2}
+            fontFamily='"DM Sans", sans-serif'
+            >
 
         <Link to="/coach">Coach</Link>
         </Box>
     
     </MenuItem>
     <MenuItem>
-    <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2} ml={2} mr={4} mb={2}>
+    <Box mt={2} ml={2} mr={4} mb={2} fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
 
 <Link to="/profile">Profile</Link>
 </Box>
     </MenuItem>
     <MenuItem>
-    <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2}  ml={2} mr={2} >
+    <Box mt={2}  ml={2} mr={2}
+    fontFamily='"DM Sans", sans-serif;' fontSize={"15px"}  >
 
 {!user?<Link to="/login" >Login</Link>:<Button colorScheme='white' variant='ghost' onClick={handleLogout}>Logout</Button>}
 </Box>
@@ -154,7 +159,8 @@ const Navbar = () => {
     <MenuItem><Link to="/createmyplan">Create My Plan</Link></MenuItem>
     </MenuList>   
             </Menu>
-            <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2}  ml={2} mr={2}>
+            <Box mt={2}  ml={2} mr={2}
+             fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
             <Link to="/exercise" >Excercise</Link>
 
             </Box>
@@ -167,17 +173,17 @@ const Navbar = () => {
     <MenuItem><Link to="/blog">Blog</Link></MenuItem>
     </MenuList>   
             </Menu>
-            <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2} ml={2} mr={4} mb={2}>
+            <Box mt={2} ml={2} mr={4} mb={2} fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
 
           <Link to="/coach">Coach</Link>
           </Box>
-          <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2} ml={2} mr={4} mb={2}>
+          <Box mt={2} ml={2} mr={4} mb={2} fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
 
           <Link to="/profile">Profile</Link>
           </Box>
           
-         {/* {user?.email} */}
-         <Box fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} mt={2}  ml={2} mr={2} >
+        
+         <Box mt={2}  ml={2} mr={2} fontFamily='"DM Sans", sans-serif;' fontSize={"15px"}  >
 
          {!user?<Link to="/login" >Login</Link>:<Button colorScheme='white' variant='ghost' onClick={handleLogout}>Logout</Button>}
          </Box>
@@ -186,7 +192,7 @@ const Navbar = () => {
         </Flex>
         </Box>
        
-        <Box alignSelf="center"   ml={{base:'12',md:'12',lg:'0'}} >
+        <Box ml={{base:'0',md:'12',lg:'0'}} alignSelf="center"    >
         
         <Link to="/signup">
           
@@ -206,4 +212,3 @@ const Navbar = () => {
 
 export default Navbar
 
-//random
