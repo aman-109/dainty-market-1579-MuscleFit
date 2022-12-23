@@ -31,8 +31,15 @@ const Navbar = () => {
   
   return (
     <Box style={stikc} zIndex="10000">
-    <Box bg="#257CFF" h="auto" p={0} >
-      <Flex w="90%" m="auto" p={2} gap={{base:'20',md:'20',lg:'10'}} 
+    <Box 
+    bg="#257CFF" 
+    h="auto" 
+    p={0} >
+      <Flex 
+      w="90%" 
+      m="auto" 
+      p={2} 
+      gap={{base:'20',md:'20',lg:'10'}} 
         sx={{
           '@media all and (min-width:0px) and (max-width:987px)':{
            justifyContent:'space-around'
@@ -41,17 +48,27 @@ const Navbar = () => {
   
          }}
       >
-         <Box  ml={{base:'12',md:'12','lg':'0'}}
+         <Box  
+         ml={{base:'12',md:'12','lg':'0'}}
          display={{'base':'visible','md':'visible','lg':'none'}}
          >
       <Menu >
-  <MenuButton as={Button} w="1px" mt="30%" bg="#257CFF" p={0}>
+  <MenuButton 
+  as={Button} 
+  w="1px" 
+  mt="30%" 
+  bg="#257CFF" 
+  p={0}>
     <HamburgerIcon ml="0px" w={6} h={6} style={{color:"white"}} />
   </MenuButton>
   <MenuList bg="#257CFF" style={{color:"white"}}>
     <MenuItem>
     <Menu > 
-          <MenuButton colorScheme='white' fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
+          <MenuButton 
+          colorScheme='white' 
+          fontFamily='"DM Sans", sans-serif;' 
+          fontSize={"13px"} 
+          backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
    Get App
   </MenuButton>
   <MenuList bg="#257CFF">
@@ -62,7 +79,11 @@ const Navbar = () => {
     </MenuItem>
     <MenuItem>
     <Menu>
-            <MenuButton colorScheme='white' fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
+            <MenuButton 
+            colorScheme='white' 
+            fontFamily='"DM Sans", sans-serif;' 
+            fontSize={"13px"} 
+            backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
    Workout Plans
   </MenuButton>
   <MenuList bg="#257CFF">
@@ -79,11 +100,15 @@ const Navbar = () => {
     </MenuItem>
     <MenuItem>
     <Menu>
-            <MenuButton colorScheme='white' fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
+            <MenuButton 
+            colorScheme='white' 
+            fontFamily='"DM Sans", sans-serif;'
+             fontSize={"13px"} 
+             backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
    Community
   </MenuButton>
   <MenuList bg="#257CFF">
-    <MenuItem><Link to="/musclefit">MuscleFit Community</Link></MenuItem>
+    <MenuItem><Link to="/community">MuscleFit Community</Link></MenuItem>
     <MenuItem><Link to="/blog">Blog</Link></MenuItem>
     </MenuList>   
             </Menu>
@@ -98,7 +123,12 @@ const Navbar = () => {
     
     </MenuItem>
     <MenuItem>
-    <Box mt={2} ml={2} mr={4} mb={2} fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
+    <Box 
+    mt={2} 
+    ml={2} 
+    mr={4} 
+    mb={2} 
+    fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
 
 <Link to="/profile">Profile</Link>
 </Box>
@@ -151,7 +181,10 @@ const Navbar = () => {
     </MenuList>
             </Menu> 
             <Menu>
-            <MenuButton colorScheme='white' fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
+            <MenuButton colorScheme='white' 
+            fontFamily='"DM Sans", sans-serif;' 
+            fontSize={"13px"} 
+            backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
    Workout Plans
   </MenuButton>
   <MenuList bg="#257CFF">
@@ -160,20 +193,30 @@ const Navbar = () => {
     </MenuList>   
             </Menu>
             <Box mt={2}  ml={2} mr={2}
-             fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
+             fontFamily='"DM Sans", sans-serif;'
+              fontSize={"15px"} >
             <Link to="/exercise" >Excercise</Link>
 
             </Box>
           <Menu>
-            <MenuButton colorScheme='white' fontFamily='"DM Sans", sans-serif;' fontSize={"13px"} backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
+            <MenuButton colorScheme='white' 
+            fontFamily='"DM Sans", sans-serif;'
+             fontSize={"13px"} 
+             backgroundColor="#257CFF"   as={Button} rightIcon={<ChevronDownIcon />}>
    Community
   </MenuButton>
   <MenuList bg="#257CFF">
-    <MenuItem><Link to="/musclefit">MuscleFit Community</Link></MenuItem>
+    <MenuItem><Link to="/community">MuscleFit Community</Link></MenuItem>
     <MenuItem><Link to="/blog">Blog</Link></MenuItem>
     </MenuList>   
             </Menu>
-            <Box mt={2} ml={2} mr={4} mb={2} fontFamily='"DM Sans", sans-serif;' fontSize={"15px"} >
+            <Box 
+            mt={2} 
+            ml={2} 
+            mr={4} 
+            mb={2} 
+            fontFamily='"DM Sans", sans-serif;' 
+            fontSize={"15px"} >
 
           <Link to="/coach">Coach</Link>
           </Box>

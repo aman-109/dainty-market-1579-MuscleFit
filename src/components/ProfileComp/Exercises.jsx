@@ -16,21 +16,52 @@ const Exercises = () => {
   return (
     <div >Exercises
     <Box p={4} >
-      <table  style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse','width':'100%',"border":'2px solid white'}}>
+      <table  
+      style={{
+        'backgroundColor':"#96D4D4",
+        borderCollapse:' collapse',
+        'width':'100%',
+        "border":'2px solid white'}}
+      >
         <thead>
           <tr >
-            <th   style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white",marginLeft:'5px'}}>Exercise Name</th>
-            <th   style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white",marginLeft:'5px'}}>Sr.No.</th>
+            <th   style={{
+              'backgroundColor':"#96D4D4",
+              borderCollapse:' collapse',
+              border:"2px solid white",
+              marginLeft:'5px'}}>
+                Exercise Name</th>
+            <th   style={{
+              'backgroundColor':"#96D4D4",
+              borderCollapse:' collapse',
+              border:"2px solid white",
+              marginLeft:'5px'}}>
+                Sr.No.</th>
           </tr>
         </thead>
         <tbody>
     {newData?.map((el,i)=>(
       <tr>
-             <td  style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white",'marginLeft':'5px'}}>
-             <Text pl={4}  key={i}>{el.exercise_name}   </Text>
+             <td  style={{
+              'backgroundColor':"#96D4D4",
+              borderCollapse:' collapse',
+              border:"2px solid white",'marginLeft':'5px'}}>
+             <Text 
+             pl={4}  
+             key={i}>
+              {el.exercise_name}  
+               </Text>
              
               </td>   
-              <td style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white"}}  ><span style={{color:"red",marginLeft:'5px'}} >{i+1}</span></td>
+              <td style={{
+                'backgroundColor':"#96D4D4",
+                borderCollapse:' collapse',
+                border:"2px solid white"}}  >
+                  <span style={{
+                    color:"red",
+                    marginLeft:'5px'}} >
+                      {i+1}</span>
+                      </td>
 
       </tr>
     ))}
