@@ -12,14 +12,32 @@ const Exercises = () => {
     .then(res=>setNewData(res.data.report))
   },[newData])
 
+  
   return (
     <div >Exercises
-      <Box border="1px solid blue" style={{borderRadius:"15px"}}>
-      {newData?.map((el,i)=>(
-        <Text key={i}>{el.exercise_name} <span style={{color:"red"}} >{i+1}</span>  </Text>
-      ))}
-      </Box>
-    </div>
+    <Box p={4} >
+      <table  style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse','width':'100%',"border":'2px solid white'}}>
+        <thead>
+          <tr >
+            <th   style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white",marginLeft:'5px'}}>Exercise Name</th>
+            <th   style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white",marginLeft:'5px'}}>Sr.No.</th>
+          </tr>
+        </thead>
+        <tbody>
+    {newData?.map((el,i)=>(
+      <tr>
+             <td  style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white",'marginLeft':'5px'}}>
+             <Text pl={4}  key={i}>{el.exercise_name}   </Text>
+             
+              </td>   
+              <td style={{'backgroundColor':"#96D4D4",borderCollapse:' collapse',border:"2px solid white"}}  ><span style={{color:"red",marginLeft:'5px'}} >{i+1}</span></td>
+
+      </tr>
+    ))}
+    </tbody>
+    </table>
+    </Box>
+  </div>
   )
 }
 
