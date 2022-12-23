@@ -9,14 +9,7 @@ const Reports = () => {
   const [newData,setNewData]=useState([])
   const {user}=useContext(AuthContext)
 
-  const data=[
-    {"muscle":"Biceps","ex":"Barbell Bicep Drag Curl","timer":"60 sec","reps":"8","sets":"3"},
-    {"muscle":"Biceps","ex":"Barbell Bicep Drag Curl","timer":"60 sec","reps":"8","sets":"3"},
-    {"muscle":"Biceps","ex":"Barbell Bicep Drag Curl","timer":"60 sec","reps":"8","sets":"3"},
-    {"muscle":"Biceps","ex":"Barbell Bicep Drag Curl","timer":"60 sec","reps":"8","sets":"3"}
-
-  ]
-
+  
   
     // AMAN
     useEffect(()=>{
