@@ -63,7 +63,13 @@ export default function Blog() {
     ]
 
     return (
-        <Flex w="70%" margin="auto" flexDirection="column" gap="50px">
+        <Flex 
+            w={{base:"90%", md:"90%", lg:"70%"}} 
+            margin="auto" 
+            mt="50px" 
+            flexDirection="column" 
+            gap={{base:"30px", md:"50px"}}
+        >
             {
                 img.map((el,i)=>(
                     <SingleBlog key={i} poster={el} heading={hd[i]} link={lnk[i]} others={oth[i]}/>

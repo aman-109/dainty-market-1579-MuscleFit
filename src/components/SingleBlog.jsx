@@ -12,11 +12,12 @@ export default function SingleBlog({poster, heading, link, others}) {
             flexDirection="column"
             gap="20px"
             textAlign="left"
-            p="50px" borderBottom="1px solid #ccc"
+            p={{base:"10px",md:"30px",lg:"50px"}}
+            borderBottom="1px solid #ccc"
         >
             <Image src={poster} w="100%"/>
             <Text 
-                fontSize="30px" 
+                fontSize={{base:"22px",md:"26px",lg:"30px"}} 
                 as="b" 
                 textDecoration="underline" 
                 _hover={{textDecoration:"none"}}
