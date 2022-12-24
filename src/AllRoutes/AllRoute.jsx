@@ -10,6 +10,7 @@ import Muscle from '../Pages/Muscle'
 import { Profile } from '../Pages/Profile'
 import Signup from '../Pages/Signup'
 import Community from "../components/Commynity"
+import { Coach } from "../Pages/Coach"
 import Blog from "../components/Blog"
 
 const AllRoute = () => {
@@ -24,7 +25,11 @@ const AllRoute = () => {
             <Route path='/exercise/muscle' element={<Muscle/>} ></Route>
             <Route path='/profile/photos' element={<Photos/> }></Route>
             <Route path='/community' element={<Community/> }></Route>
+
+            <Route path='/coach' element={<Coach/> }></Route>
+
             <Route path='/blog' element={<Blog/> }></Route>
+
             <Route path='/exercise/details/:id' element={<PrivateRoute> <ExerciseDetails/> </PrivateRoute>}></Route>
         </Routes>
     </div>
